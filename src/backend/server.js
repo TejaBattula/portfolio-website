@@ -64,26 +64,26 @@ app.post("/contact",async(req,res)=>{
 
         await Contact.save()
         
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
+        try {
+            const info = await transporter.sendMail({
+                from: process.env.EMAIL_USER,
+                to: process.env.EMAIL_USER,
+                subject: "📩 New Portfolio Contact",
+                html: `
+                    <h2>Someone contacted you!</h2>
+                    <p><b>Name:</b> ${req.body.name}</p>
+                    <p><b>Email:</b> ${req.body.email}</p>
+                    <p><b>Subject:</b> ${req.body.subject}</p>
+                    <p><b>Message:</b> ${req.body.message}</p>
+                `
+            });
         
-            subject: "📩 New Portfolio Contact",
+            console.log("Mail sent successfully:", info);
         
-            html: `
-                <h2>Someone contacted you!</h2>
-        
-                <p><b>Name:</b> ${req.body.name}</p>
-        
-                <p><b>Email:</b> ${req.body.email}</p>
-        
-                <p><b>Subject:</b> ${req.body.subject}</p>
-        
-                <p><b>Message:</b></p>
-        
-                <p>${req.body.message}</p>
-            `
-        });
+        } catch (err) {
+            console.error("Mail Error:");
+            console.error(err);
+        }
 
         res.status(201).json({
             success : true,
