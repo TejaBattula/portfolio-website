@@ -91,9 +91,8 @@ app.post("/contact",async(req,res)=>{
             console.log("Mail sent successfully:", info);
         
         } catch (err) {
-            console.error("Mail Error:");
-            console.error(err);
-        }
+            console.log("MAIL ERROR:", err.message);
+        }   
 
         res.status(201).json({
             success : true,
