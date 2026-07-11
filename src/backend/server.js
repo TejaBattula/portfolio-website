@@ -25,10 +25,13 @@ mongoose.connect(process.env.MONGO_URI)
 })
 
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,         // Using secure SSL port
+    secure: true,      // true for port 465
+    family: 4,         // Forces IPv4 (Crucial: Render often times out trying to use IPv6 with Gmail)
     auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        pass: process.env.EMAIL_PASS // Your 16-character App Password without spaces
     }
 });
 console.log("EMAIL_USER:", process.env.EMAIL_USER);
