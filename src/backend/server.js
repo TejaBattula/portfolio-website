@@ -25,17 +25,15 @@ mongoose.connect(process.env.MONGO_URI)
 })
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: "smtp-relay.brevo.com",
     port: 587,
     secure: false,
     requireTLS: true,
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        user: process.env.BREVO_LOGIN,
+        pass: process.env.BREVO_KEY
     }
 });
-console.log("EMAIL_USER:", process.env.EMAIL_USER);
-console.log("EMAIL_PASS exists:", !!process.env.EMAIL_PASS);
 
 
 transporter.verify((error, success) => {
@@ -77,8 +75,8 @@ app.post("/contact", async (req, res) => {
         console.log("Sending email...");
 
         const info = await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
+            from: process.env.BREVO_LOGIN,
+            to: "kbattula059@gmail.com",
             subject: "Test Mail",
             text: "Hello from Render"
         });
