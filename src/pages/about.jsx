@@ -36,9 +36,9 @@ export const About = () => {
             </div>
             <div className="skill-info">
               <div className="skill-img"><img  src="html.png" alt="" /><p>HTML</p></div>
-              <div className="skill-img"><img  src='css.png'/><p>CSS</p></div>
-              <div className="skill-img"><img  src='js.png'/><p>JavaScript</p></div>
-              <div className="skill-img"><img  src='react.png'/><p>React js</p></div>
+              <div className="skill-img"><img  src='css.png' alt=""/><p>CSS</p></div>
+              <div className="skill-img"><img  src='js.png' alt=""/><p>JavaScript</p></div>
+              <div className="skill-img"><img  src='react.png' alt=""/><p>React js</p></div>
             </div>
           </div>
           <div className="skill-card">
@@ -47,13 +47,13 @@ export const About = () => {
               </div>
               <div className="skill-info">
                
-                <div className="skill-img"><img  src='nodejs.png'/><p>Node js</p></div>
+                <div className="skill-img"><img  src='nodejs.png' alt=''/><p>Node js</p></div>
               </div>
           </div>
           <div className="skill-card">
             <div className="skill-title">Database</div>
             <div className="skill-info">
-            <div className="skill-img"><img  src='mysql.png'/><p>MySQL</p></div>
+            <div className="skill-img"><img  src='mysql.png' alt=''/><p>MySQL</p></div>
             </div>
             
           </div>

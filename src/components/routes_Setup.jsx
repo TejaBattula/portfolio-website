@@ -4,7 +4,7 @@ import About from '../pages/about'
 import Projects from '../pages/projects'
 import Contact from '../pages/contact'
 import Navbar from './navbar'
-export const Routes_Setup = () => {
+export const RoutesSetup = () => {
   return (
     <>
       <Navbar/>
@@ -17,4 +17,4 @@ export const Routes_Setup = () => {
     </>
   )
 }
-export default Routes_Setup
+export default RoutesSetup

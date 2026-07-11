@@ -17,7 +17,9 @@ const Projects = () => {
             <p>React | Node | Express | MySQL</p>
           
           <div className="project-card-body-text">
-            <a href="#">View Project</a>
+            <a href="https://github.com/TejaBattula" target="_blank" rel="noopener noreferrer">
+              View Project
+            </a>
           </div>
         </div>
       </div>
@@ -33,7 +35,9 @@ const Projects = () => {
             <p>React | Node | Express | MySQL</p>
           
           <div className="project-card-body-text">
-            <a href="#">View Project</a>
+            <a href="https://github.com/TejaBattula" target="_blank" rel="noopener noreferrer">
+              View Project
+            </a>
           </div>
         </div>
       </div>
@@ -49,7 +53,9 @@ const Projects = () => {
             <p>React | Node | Express | MySQL</p>
           
           <div className="project-card-body-text">
-            <a href="#">View Project</a>
+            <a href="https://github.com/TejaBattula" target="_blank" rel="noopener noreferrer">
+              View Project
+            </a>
           </div>
         </div>
       </div>
@@ -65,7 +71,9 @@ const Projects = () => {
             <p>React | Node | Express | MySQL</p>
           
           <div className="project-card-body-text">
-            <a href="#">View Project</a>
+            <a href="https://github.com/TejaBattula" target="_blank" rel="noopener noreferrer">
+              View Project
+            </a>
           </div>
         </div>
       </div>
@@ -81,7 +89,9 @@ const Projects = () => {
             <p>React | Node | Express | MySQL</p>
           
           <div className="project-card-body-text">
-            <a href="#">View Project</a>
+            <a href="https://github.com/TejaBattula" target="_blank" rel="noopener noreferrer">
+              View Project
+            </a>
           </div>
         </div>
       </div>
@@ -97,7 +107,9 @@ const Projects = () => {
             <p>React | Node | Express | MySQL</p>
           
           <div className="project-card-body-text">
-            <a href="#">View Project</a>
+            <a href="https://github.com/TejaBattula" target="_blank" rel="noopener noreferrer">
+              View Project
+            </a>
           </div>
         </div>
       </div>
