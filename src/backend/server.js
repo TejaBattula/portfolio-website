@@ -61,13 +61,13 @@ app.post("/contact",async(req,res)=>{
     
     
     
-    try {
+    
         const contact = new Contact(req.body);
         console.log(req.body);
 
         await contact.save()
         
-        try {
+        
             console.log("hi mail");
             
             const info = await transporter.sendMail({
@@ -85,23 +85,17 @@ app.post("/contact",async(req,res)=>{
         
             console.log("Mail sent successfully:", info);
         
-        } catch (err) {
-            console.log("MAIL ERROR:", err.message);
-        }   
+         
 
         res.status(201).json({
             success : true,
             message : "Message saved successfully"
         })
         
-    } catch (error) {
-        res.status(500).json({
-            success : false,
-            message : error.message
-        })
+    
         
-    }
 })
+
 app.get('/',(req,res)=>{
     res.send("Successfully connected to server");
 })
