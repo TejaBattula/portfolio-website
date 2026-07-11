@@ -65,6 +65,9 @@ const Contact = mongoose.model("Contact",contactSchema)
 
 
 app.post("/contact", async (req, res) => {
+    console.log("==== /contact route hit ====");
+    console.log(req.body);
+    
     try {
         // 1. Save data to Database
         const contact = new Contact(req.body);
@@ -74,7 +77,7 @@ app.post("/contact", async (req, res) => {
         // 2. Send email notification (Wrapped securely so database doesn't break if mail fails)
         try {
             console.log("Attempting to send email...");
-            const info = await transporter.sendMail({
+            await transporter.sendMail({
                 from: process.env.EMAIL_USER,
                 to: process.env.EMAIL_USER,
                 subject: "📩 New Portfolio Contact",
@@ -86,7 +89,7 @@ app.post("/contact", async (req, res) => {
                     <p><b>Message:</b> ${req.body.message}</p>
                 `
             });
-            console.log("Mail sent successfully! Message ID:", info.messageId);
+            console.log("Mail sent successfully! Message ID:");
         } catch (mailError) {
             // This logs the exact, explicit reason Gmail rejected it in Render's logs
             console.error("❌ CRITICAL MAIL ERROR:", mailError.message);
