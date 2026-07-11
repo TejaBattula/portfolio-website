@@ -32,16 +32,19 @@ const transporter = nodemailer.createTransport({
     auth: {
         user: process.env.BREVO_LOGIN,
         pass: process.env.BREVO_KEY
-    }
+    },
+    logger: true,
+    debug: true
 });
 console.log("BREVO_LOGIN:", process.env.BREVO_LOGIN);
 console.log("BREVO_KEY exists:", !!process.env.BREVO_KEY);
 
-transporter.verify((error, success) => {
-    if (error) {
-        console.log(error.message);
+transporter.verify((err, success) => {
+    if (err) {
+        console.error("VERIFY ERROR:");
+        console.error(err);
     } else {
-        console.log("Email server is ready!!");
+        console.log("Brevo SMTP Connected!");
     }
 });
 const contactSchema = new mongoose.Schema({
