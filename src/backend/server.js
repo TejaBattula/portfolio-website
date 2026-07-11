@@ -31,7 +31,7 @@ transporter.verify((error, success) => {
     if (error) {
         console.log(error);
     } else {
-        console.log("✅ Email server is ready");
+        console.log("Email server is ready");
     }
 });
 const contactSchema = new mongoose.Schema({
@@ -101,8 +101,8 @@ app.post("/contact",async(req,res)=>{
 app.get('/',(req,res)=>{
     res.send("Successfully connected to server");
 })
-
-app.listen(3001,()=>{
-    console.log("server is running on port 3000!");
+const PORT = process.env.PORT || 3001;
+app.listen(PORT,()=>{
+    console.log(`server is running on port ${PORT}!`);
     
 })
