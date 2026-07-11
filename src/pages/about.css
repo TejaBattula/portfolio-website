@@ -1,0 +1,105 @@
+.about-page{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 65px;
+    padding-right: 65px;
+}
+.about-title{
+    font-size: 50px;
+    text-align: center;
+    font-weight: 800;
+
+}
+.about-info,.skill-rating{
+    font-size: 15px;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    line-height: 22px;
+    border: 1px solid rgba(207, 157, 253, 0.582);
+    
+    background-color: rgb(26, 3, 48);
+    border-radius: 15px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    opacity: 1;
+    
+}
+.about-info:hover,.skill-rating:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px  rgb(177, 134, 218);
+}
+.about-card{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 50px;
+}
+.skill-head{
+    font-size: 20px;
+    font-weight: 800;
+    color: blueviolet;
+}
+.skill-card{
+    margin-top: 20px;
+}
+.skill-title{
+    color: white;
+    font-weight: 600;
+}
+.skill-info{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.skill-img img{
+    width: 50px;
+    height: 50px;
+}
+.skill-img{
+    background-color:rgba(12, 1, 22, 0.664);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+.know-technologies{
+    width: 100%;
+}
+.about-section{
+    width: 100%;
+}
+.frntd-per{
+    width: 75%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: blueviolet;
+}
+.bcknd-per{
+    width: 50%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: blueviolet;
+}
+.db-per{
+    width: 50%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: blueviolet;
+}
+.skill-rating div p{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+@media screen and (max-width : 679px){
+    .about-card{
+        flex-direction: column;
+    }
+}

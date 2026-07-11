@@ -1,0 +1,166 @@
+.navbar{
+    background-color: rgb(71, 46, 82);
+    height:10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    z-index: 10000;
+    top: 15px;
+    border-radius: 30px;
+    margin: auto;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+    padding: 20px;
+}
+
+
+.toggle-target i{
+    font-size: 20px;
+}
+.toggle-target{
+    display: none;
+    padding: 20px;
+}
+
+.nav-title{
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-title span{
+    font-size: 25px;
+    font-weight: 600;
+
+}
+nav a{
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    width: auto;
+    padding: 7px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    
+}
+.contact-btn{
+    background-color: rgb(150, 51, 241);
+    border-radius: 20px;
+    width: 100px;
+    text-align: center;
+}
+.contact-btn:hover{
+    box-shadow: 0px 0px 10px 5px rgb(150, 51, 241);
+}
+.active{
+    color: rgb(179, 157, 201);
+   font-weight: 800;
+    
+}
+
+.nav-item:hover{
+    color: rgb(179, 157, 201);
+}
+.nav-item:hover .nav-load-line{
+    animation: grow 1s ease-in-out;
+    
+    
+}
+@keyframes grow {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width :679px) {
+    .navbar{
+        width: 100%;
+        margin: 15px 10px 0px 10px;
+    }
+    .nav-title span{
+        font-size: 20px;
+    }
+    .nav-options{
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: rgb(71, 46, 82);
+    
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+    
+        transition: all 0.35s ease;
+    
+        border-radius: 15px;
+    }
+    .nav-options.toggle-bar{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .nav-load-line{
+        display: none;
+    }
+    .nav-item:hover{
+        width: 100%;
+        border: 1px solid rgba(204, 142, 228, 0.103);
+        box-shadow:0px 0px 10px 5px rgba(204, 142, 228, 0.288) ;
+        background-color: rgba(204, 142, 228, 0.288);
+        color: white;
+        font-weight: 800;
+    }
+    .contact-btn{
+        margin: auto;
+        width: 100%;
+        
+    }
+    .toggle-target{
+        display: block;
+    }
+   
+    .toggle-bar{
+        flex-direction: column;
+    }
+    .toggle-target i{
+        font-size: 30px;
+    }
+    .navbar{
+        width: 90%;
+        margin: auto;
+
+    }
+}
+@media screen and (min-width :1024px){
+    .navbar{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .nav-load-line{
+        position: absolute;
+        left: 0px;
+        height: 5px;
+        width: 0%;
+        background-color: rgb(179, 157, 201);
+        border-radius: 5px;
+    }
+    .nav-options{
+        
+        justify-content: space-between;
+    }
+}
