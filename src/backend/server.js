@@ -60,7 +60,7 @@ const contactSchema = new mongoose.Schema({
     }
 )
 
-const contact = mongoose.model("contact",contactSchema)
+const Contact = mongoose.model("Contact",contactSchema)
 
 
 app.post("/contact",async(req,res)=>{
@@ -68,12 +68,14 @@ app.post("/contact",async(req,res)=>{
     
     
     try {
-        const Contact = new contact(req.body);
+        const contact = new Contact(req.body);
         console.log(req.body);
 
-        await Contact.save()
+        await contact.save()
         
         try {
+            console.log("hi mail");
+            
             const info = await transporter.sendMail({
                 from: process.env.EMAIL_USER,
                 to: process.env.EMAIL_USER,
