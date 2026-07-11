@@ -68,7 +68,6 @@ app.post("/contact",async(req,res)=>{
     
     
     try {
-        const { name, email,subject, message } = req.body;
         const Contact = new contact(req.body);
         console.log(req.body);
 
