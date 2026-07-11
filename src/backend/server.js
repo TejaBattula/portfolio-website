@@ -65,47 +65,32 @@ const Contact = mongoose.model("Contact",contactSchema)
 
 
 app.post("/contact", async (req, res) => {
-    console.log("==== /contact route hit ====");
-    console.log(req.body);
-    
+    console.log("====== CONTACT ROUTE HIT ======");
+
     try {
-        // 1. Save data to Database
+        console.log("Saving...");
         const contact = new Contact(req.body);
         await contact.save();
-        console.log("Data saved to DB:", req.body);
 
-        // 2. Send email notification (Wrapped securely so database doesn't break if mail fails)
-        try {
-            console.log("Attempting to send email...");
-            await transporter.sendMail({
-                from: process.env.EMAIL_USER,
-                to: process.env.EMAIL_USER,
-                subject: "📩 New Portfolio Contact",
-                html: `
-                    <h2>Someone contacted you!</h2>
-                    <p><b>Name:</b> ${req.body.name}</p>
-                    <p><b>Email:</b> ${req.body.email}</p>
-                    <p><b>Subject:</b> ${req.body.subject}</p>
-                    <p><b>Message:</b> ${req.body.message}</p>
-                `
-            });
-            console.log("Mail sent successfully! Message ID:");
-        } catch (mailError) {
-            // This logs the exact, explicit reason Gmail rejected it in Render's logs
-            console.error("❌ CRITICAL MAIL ERROR:", mailError.message);
-        }
+        console.log("Saved!");
 
-        res.status(201).json({
-            success: true,
-            message: "Message saved successfully"
+        console.log("Sending email...");
+
+        const info = await transporter.sendMail({
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
+            subject: "Test Mail",
+            text: "Hello from Render"
         });
 
-    } catch (dbError) {
-        console.error("❌ DATABASE OR ROUTE ERROR:", dbError.message);
-        res.status(500).json({
-            success: false,
-            message: dbError.message
-        });
+        console.log("Mail sent!");
+        console.log(info);
+
+        res.json({ success: true });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
     }
 });
 
