@@ -34,7 +34,8 @@ const transporter = nodemailer.createTransport({
         pass: process.env.BREVO_KEY
     }
 });
-
+console.log("BREVO_LOGIN:", process.env.BREVO_LOGIN);
+console.log("BREVO_KEY exists:", !!process.env.BREVO_KEY);
 
 transporter.verify((error, success) => {
     if (error) {
