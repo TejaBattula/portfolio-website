@@ -25,17 +25,20 @@ mongoose.connect(process.env.MONGO_URI)
 })
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: "smtp.gmail.com",
+    port: 465,         // Using secure SSL port
+    secure: true,      // true for port 465
+    family: 4,         // Forces IPv4 (Crucial: Render often times out trying to use IPv6 with Gmail)
     auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS // Your 16-character App Password
+        pass: process.env.EMAIL_PASS // Your 16-character App Password without spaces
     }
 });
 transporter.verify((error, success) => {
     if (error) {
         console.log(error.message);
     } else {
-        console.log("Email server is ready");
+        console.log("Email server is ready!!");
     }
 });
 const contactSchema = new mongoose.Schema({
@@ -57,19 +60,16 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model("Contact",contactSchema)
 
 
-app.post("/contact",async(req,res)=>{
-    
-    
-    
-    
+app.post("/contact", async (req, res) => {
+    try {
+        // 1. Save data to Database
         const contact = new Contact(req.body);
-        console.log(req.body);
+        await contact.save();
+        console.log("Data saved to DB:", req.body);
 
-        await contact.save()
-        
-        
-            console.log("hi mail");
-            
+        // 2. Send email notification (Wrapped securely so database doesn't break if mail fails)
+        try {
+            console.log("Attempting to send email...");
             const info = await transporter.sendMail({
                 from: process.env.EMAIL_USER,
                 to: process.env.EMAIL_USER,
@@ -82,19 +82,25 @@ app.post("/contact",async(req,res)=>{
                     <p><b>Message:</b> ${req.body.message}</p>
                 `
             });
-        
-            console.log("Mail sent successfully:", info);
-        
-         
+            console.log("Mail sent successfully! Message ID:", info.messageId);
+        } catch (mailError) {
+            // This logs the exact, explicit reason Gmail rejected it in Render's logs
+            console.error("❌ CRITICAL MAIL ERROR:", mailError.message);
+        }
 
         res.status(201).json({
-            success : true,
-            message : "Message saved successfully"
-        })
-        
-    
-        
-})
+            success: true,
+            message: "Message saved successfully"
+        });
+
+    } catch (dbError) {
+        console.error("❌ DATABASE OR ROUTE ERROR:", dbError.message);
+        res.status(500).json({
+            success: false,
+            message: dbError.message
+        });
+    }
+});
 
 app.get('/',(req,res)=>{
     res.send("Successfully connected to server");
