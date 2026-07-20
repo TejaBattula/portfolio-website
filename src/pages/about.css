@@ -53,7 +53,7 @@
 }
 .skill-info{
     display: flex;
-    flex-wrap: wrap;
+    
     gap: 10px;
     margin-top: 10px;
 }
@@ -102,5 +102,9 @@
 @media screen and (max-width : 679px){
     .about-card{
         flex-direction: column;
+    }
+    .skill-info{
+        flex-wrap: wrap;
+        gap: 50px;
     }
 }
