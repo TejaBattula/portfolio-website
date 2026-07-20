@@ -80,7 +80,7 @@ app.post("/contact", async (req, res) => {
 
         await transporter.sendMail({
             from: process.env.EMAIL,
-            to: process.env.EMAIL,
+            to: "tejaswinibattula9@gmail.com",
             subject: "New Portfolio Contact",
             html: `
                 <h2>New Contact Form Submission</h2>
