@@ -24,30 +24,11 @@ mongoose.connect(process.env.MONGO_URI)
     
 })
 
-// const transporter = nodemailer.createTransport({
-//     host: "smtp.gmail.com",
-//     port: 587,
-//     secure: false,
-//     family: 4,
-//     auth: {
-//         user: process.env.EMAIL,
-//         pass: process.env.PASS
-//     },
-//     connectionTimeout: 10000,
-//     greetingTimeout: 10000,
-//     socketTimeout: 10000,
-// });
+
 console.log("Email:", process.env.EMAIL);
 console.log("password:", !!process.env.RESEND_API_KEY);
 
-// transporter.verify((err, success) => {
-//     if (err) {
-//         console.error("VERIFY ERROR:");
-//         console.error(err);
-//     } else {
-//         console.log("nodemailer Connected!");
-//     }
-// });
+
 const contactSchema = new mongoose.Schema({
     name : {
         type : String,
@@ -84,7 +65,7 @@ app.post("/contact", async (req, res) => {
             to: process.env.EMAIL,
             subject: "New Portfolio Contact",
             html: `
-              <h2>New Contact Form Submission</h2>
+              <h2>New Contact Form Submission from portfolio website</h2>
           
               <p><b>Name:</b> ${req.body.name}</p>
           

@@ -88,3 +88,30 @@
     transform:translateY(-5px);
     box-shadow:0 0 20px rgb(166, 95, 233);
 }
+.mail-message{
+    border: 1px solid rgb(14, 1, 36);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 30%;
+    height: 200px;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    position: absolute;
+    top: 20%;
+    box-shadow: 0px 0px 1000px 200px rgb(46, 2, 82);
+    line-height: 25px;
+}
+.mail-message button{
+    width: 20%;
+    height: 30px;
+    color: black;
+}
+@media screen and (max-width:679px) {
+    .mail-message{
+        width: 80%;
+
+    }
+}

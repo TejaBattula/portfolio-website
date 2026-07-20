@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./contact.css";
 
 export const Contact = () => {
-
+  const[ismailsent,setmailsent]=useState("")
   const [form,setform] = useState({
     name :"",
     email : "",
@@ -31,10 +31,25 @@ export const Contact = () => {
       });
       const data =await response.json();
       if(data.success==true){
-        window.scrollTo()
+        setmailsent("true")
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       }
-      
-    
+      else{
+        setmailsent("false")
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+      setform({
+        name :"",
+        email : "",
+        subject : "",
+        message : ""
+      })
     };  
 
   return (
@@ -72,6 +87,7 @@ export const Contact = () => {
           <input
             type="text"
             name="name"
+            value={form.name}
             placeholder="Your Name"
             onChange={(e)=>{handleChange(e)}}
             required
@@ -80,6 +96,8 @@ export const Contact = () => {
           <input
             type="email"
             name="email"
+            value={form.email}
+
             placeholder="Your Email"
             onChange={(e)=>{handleChange(e)}}
 
@@ -89,6 +107,8 @@ export const Contact = () => {
           <input
             type="text"
             name="subject"
+            value={form.subject}
+
             placeholder="Subject"
             onChange={(e)=>{handleChange(e)}}
 
@@ -98,6 +118,8 @@ export const Contact = () => {
           <textarea
             rows="6"
             name="message"
+            value={form.message}
+
             placeholder="Your Message"
             onChange={(e)=>{handleChange(e)}}
 
@@ -110,6 +132,17 @@ export const Contact = () => {
         </form>
 
       </div>
+      {
+        ismailsent=="true"?<div className="mail-message">
+        <p>Thank you for reaching out! 🎉</p>
+        <p>Your message has been sent successfully. I'll review it and get back to you as soon as possible.</p>
+        <button onClick={()=>{setmailsent("")}}>cancel</button>
+        </div>:ismailsent=="false"?<div className="mail-message">
+        <p>Something went wrong.</p>
+        <p>Your message couldn't be sent. Please try again later or contact me directly at tejaswinibattula9@gmail.com.</p>
+        <button onClick={()=>{setmailsent("")}}>cancel</button>
+      </div>:""
+      }
     </section>
   );
 };
