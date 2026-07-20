@@ -18,21 +18,22 @@ export const Contact = () => {
     
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    const response = await fetch("https://portfolio-website-ld5u.onrender.com/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(form)
-    });
-    const data =await response.json();
-    console.log(data);
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log(form);
+      
+      const response = await fetch("https://portfolio-website-ld5u.onrender.com/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(form)
+      });
+      const data =await response.json();
+      console.log(data);
+      
     
-   
-  };  
+    };  
 
   return (
     <section className="contact" id="contact">
