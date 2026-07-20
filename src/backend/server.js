@@ -25,14 +25,16 @@ mongoose.connect(process.env.MONGO_URI)
 })
 
 const transporter = nodemailer.createTransport({
-    service:'gmail',
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS
     },
 });
-console.log("BREVO_LOGIN:", process.env.EMAIL);
-console.log("BREVO_KEY exists:", !!process.env.PASS);
+console.log("Email:", process.env.EMAIL);
+console.log("password:", !!process.env.PASS);
 
 transporter.verify((err, success) => {
     if (err) {
