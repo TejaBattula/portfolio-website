@@ -74,8 +74,8 @@ app.post("/contact", async (req, res) => {
         console.log("Sending email...");
 
         await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
+            from: process.env.EMAIL,
+            to: process.env.EMAIL,
             subject: "New Portfolio Contact",
             html: `
                 <h2>New Contact Form Submission</h2>
