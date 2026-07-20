@@ -30,7 +30,9 @@ export const Contact = () => {
         body: JSON.stringify(form)
       });
       const data =await response.json();
-      console.log(data);
+      if(data.success==true){
+        window.scrollTo()
+      }
       
     
     };  
