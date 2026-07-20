@@ -79,10 +79,10 @@ app.post("/contact", async (req, res) => {
             subject: "New Portfolio Contact",
             html: `
                 <h2>New Contact Form Submission</h2>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Name:</strong> ${req.body.name}</p>
+                <p><strong>Email:</strong> ${req.body.email}</p>
                 <p><strong>Message:</strong></p>
-                <p>${message}</p>
+                <p>${req.body.message}</p>
             `
         });
 
