@@ -25,26 +25,21 @@ mongoose.connect(process.env.MONGO_URI)
 })
 
 const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com",
-    port: 587,
-    secure: false,
-    requireTLS: true,
+    service:'gmail',
     auth: {
-        user: process.env.BREVO_LOGIN,
-        pass: process.env.BREVO_KEY
+        user: process.env.EMAIL,
+        pass: process.env.PASS
     },
-    logger: true,
-    debug: true
 });
-console.log("BREVO_LOGIN:", process.env.BREVO_LOGIN);
-console.log("BREVO_KEY exists:", !!process.env.BREVO_KEY);
+console.log("BREVO_LOGIN:", process.env.EMAIL);
+console.log("BREVO_KEY exists:", !!process.env.PASS);
 
 transporter.verify((err, success) => {
     if (err) {
         console.error("VERIFY ERROR:");
         console.error(err);
     } else {
-        console.log("Brevo SMTP Connected!");
+        console.log("nodemailer Connected!");
     }
 });
 const contactSchema = new mongoose.Schema({
@@ -70,7 +65,7 @@ app.post("/contact", async (req, res) => {
     console.log("====== CONTACT ROUTE HIT ======");
 
     try {
-        console.log("Saving...");
+        console.log("Saving request...");
         const contact = new Contact(req.body);
         await contact.save();
 
@@ -78,15 +73,20 @@ app.post("/contact", async (req, res) => {
 
         console.log("Sending email...");
 
-        const info = await transporter.sendMail({
-            from: process.env.BREVO_LOGIN,
-            to: "kbattula059@gmail.com",
-            subject: "Test Mail",
-            text: "Hello from Render"
+        await transporter.sendMail({
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
+            subject: "New Portfolio Contact",
+            html: `
+                <h2>New Contact Form Submission</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Message:</strong></p>
+                <p>${message}</p>
+            `
         });
 
         console.log("Mail sent!");
-        console.log(info);
 
         res.json({ success: true });
 
