@@ -2,9 +2,9 @@ require("dotenv").config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const nodemailer = require('nodemailer');
+const {Resend} = require('resend');
 
-
+const resend = new Resend(process.env.RESEND_API_KEY);
 const app = express();
 app.use(cors({
     origin: "*",
@@ -24,30 +24,30 @@ mongoose.connect(process.env.MONGO_URI)
     
 })
 
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    family: 4,
-    auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASS
-    },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
-});
+// const transporter = nodemailer.createTransport({
+//     host: "smtp.gmail.com",
+//     port: 587,
+//     secure: false,
+//     family: 4,
+//     auth: {
+//         user: process.env.EMAIL,
+//         pass: process.env.PASS
+//     },
+//     connectionTimeout: 10000,
+//     greetingTimeout: 10000,
+//     socketTimeout: 10000,
+// });
 console.log("Email:", process.env.EMAIL);
-console.log("password:", !!process.env.PASS);
+console.log("password:", !!process.env.RESEND_API_KEY);
 
-transporter.verify((err, success) => {
-    if (err) {
-        console.error("VERIFY ERROR:");
-        console.error(err);
-    } else {
-        console.log("nodemailer Connected!");
-    }
-});
+// transporter.verify((err, success) => {
+//     if (err) {
+//         console.error("VERIFY ERROR:");
+//         console.error(err);
+//     } else {
+//         console.log("nodemailer Connected!");
+//     }
+// });
 const contactSchema = new mongoose.Schema({
     name : {
         type : String,
@@ -79,18 +79,26 @@ app.post("/contact", async (req, res) => {
 
         console.log("Sending email...");
 
-        await transporter.sendMail({
-            from: process.env.EMAIL,
-            to: "tejaswinibattula9@gmail.com",
+        await resend.emails.send({
+            from: "Portfolio <onboarding@resend.dev>",
+            to: process.env.EMAIL,
             subject: "New Portfolio Contact",
             html: `
-                <h2>New Contact Form Submission</h2>
-                <p><strong>Name:</strong> ${req.body.name}</p>
-                <p><strong>Email:</strong> ${req.body.email}</p>
-                <p><strong>Message:</strong></p>
-                <p>${req.body.message}</p>
-            `
-        });
+              <h2>New Contact Form Submission</h2>
+          
+              <p><b>Name:</b> ${req.body.name}</p>
+          
+              <p><b>Email:</b> ${req.body.email}</p>
+          
+              <p><b>Subject:</b> ${req.body.subject}</p>
+          
+              <p><b>Message:</b></p>
+          
+              <p>${req.body.message}</p>
+            `,
+          });
+          
+          console.log("Email sent!");
 
         console.log("Mail sent!");
 
