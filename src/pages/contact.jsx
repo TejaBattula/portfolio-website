@@ -3,6 +3,7 @@ import "./contact.css";
 
 export const Contact = () => {
   const[ismailsent,setmailsent]=useState("")
+  const [isloading,setloading]=useState(false)
   const [form,setform] = useState({
     name :"",
     email : "",
@@ -21,7 +22,7 @@ export const Contact = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       console.log(form);
-      
+      setloading(true)
       const response = await fetch("https://portfolio-website-ld5u.onrender.com/contact", {
         method: "POST",
         headers: {
@@ -44,12 +45,14 @@ export const Contact = () => {
           behavior: "smooth"
         });
       }
+      setloading(false)
       setform({
         name :"",
         email : "",
         subject : "",
         message : ""
       })
+      
     };  
 
   return (
@@ -128,6 +131,9 @@ export const Contact = () => {
 
           <button type="submit" onClick={(e)=>{handleSubmit(e)}}>
             Send Message
+            {isloading?<div className="spinner-container">
+              <div className="spinner"></div>
+          </div>:""}
           </button>
         </form>
 
