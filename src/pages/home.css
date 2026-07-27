@@ -4,16 +4,19 @@
     align-items: center;
     min-height: 90vh;
     width: 100%;
-    /* animation: slideup 1s ease; */
+    animation: slideup 1s ease;
 }
-/* @keyframes slideup {
+@keyframes slideup {
     from{
         margin-top: -100px;
     }
     to{
         margin-top: 0px;
-    } */
-/* } */
+    }
+}
+.home-page .blur{
+    backdrop-filter: blur(15px);
+}
 .home-left{
     display: flex;
     flex-direction: column;

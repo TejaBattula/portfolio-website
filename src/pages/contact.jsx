@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./contact.css";
 
-export const Contact = () => {
-  const[ismailsent,setmailsent]=useState("")
+export const Contact = ({setmailsent,ismailsent}) => {
   const [isloading,setloading]=useState(false)
   const [form,setform] = useState({
     name :"",

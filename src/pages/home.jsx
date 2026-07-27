@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import About from './about'
 import Projects from './projects'
 import Contact from './contact'
-export const Home= () => {
+export const Home= ({setmailsent,ismailsent}) => {
   const navigate = useNavigate()
 
   function handleAbout(){
@@ -16,7 +16,7 @@ export const Home= () => {
   return (
     <>
 
-      <div className='home-page'>
+      <div className={ismailsent=="true"?'home-page blur':'home-page'}>
         <div className="home-left">
           <div className="about-me">
             <h2><span style={{fontSize:"40px"}}>Hi!</span> I'm Tejaswini</h2>
@@ -50,7 +50,7 @@ export const Home= () => {
     </section>
 
     <section id="contact">
-      <Contact />
+      <Contact setmailsent={setmailsent} ismailsent={ismailsent}/>
     </section>
     </>
   )

@@ -105,6 +105,7 @@
     }
     .skill-info{
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 20px;
     }
+   
 }
