@@ -125,7 +125,7 @@
     width: 40px;
     height: 40px;
     border: 6px solid #ddd;
-    border-top: 6px solid #3498db;
+    border-top: 6px solid rgb(166, 95, 233);
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
