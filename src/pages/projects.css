@@ -82,6 +82,12 @@
 .project-card-body p{
     font-size: 12px;
 }
+.project-card-title{
+    padding: 10px;
+}
+.project-card-title img{
+    opacity: 0.8;
+}
 @media screen and (max-width : 679px){
     .project-body{
         grid-template-columns: repeat(1,1fr);
