@@ -22,7 +22,7 @@ export const Home= ({setmailsent,ismailsent}) => {
             <h2><span style={{fontSize:"40px"}}>Hi!</span> I'm Tejaswini</h2>
             <h1>Full Stack Developer</h1>
             <p>I build responsive, modern, and user-friendly web applications using HTML,
-               CSS, JavaScript, React, Node.js, and SQL.
+               CSS, JavaScript, React, Node.js,SQL and MongoDB.
                 I'm passionate about solving real-world problems through technology and continuously
                  improving my skills in full-stack development and data structures.</p>
           </div>
@@ -31,8 +31,7 @@ export const Home= ({setmailsent,ismailsent}) => {
             <button onClick={handleProjects} className='project-btn'>Projects</button>
           </div>
           <div className="social-media">
-            <i className="fa-brands fa-linkedin"></i>
-            <i className="fa-brands fa-github"></i>
+            <a style={{textDecoration:"none"}} href="http://github.com/TejaBattula/"><i className="fa-brands fa-github"></i></a>
           </div>
         </div>
         <div className="home-right">

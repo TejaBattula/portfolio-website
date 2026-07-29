@@ -18,12 +18,12 @@ export const About = () => {
             </div>
             <div>
               <p>Backend</p>
-              <div className='bcknd-per'></div><span>50%</span>
+              <div className='bcknd-per'></div><span>65%</span>
               
             </div>
             <div>
               <p>Database</p>
-              <div className='db-per'></div><span>50%</span>
+              <div className='db-per'></div><span>75%</span>
               
             </div>
           </div>
@@ -48,12 +48,14 @@ export const About = () => {
               <div className="skill-info">
                
                 <div className="skill-img"><img  src='nodejs.png' alt=''/><p>Node js</p></div>
+                <div className="skill-img"><img  src='express.png' alt=''/><p>Express</p></div>
               </div>
           </div>
           <div className="skill-card">
             <div className="skill-title">Database</div>
             <div className="skill-info">
-            <div className="skill-img"><img  src='mysql.png' alt=''/><p>MySQL</p></div>
+            <div className="skill-img"><img  src='mysql2.png' alt=''/><p>MySQL</p></div>
+            <div className="skill-img"><img  src='mongoDB.png' alt=''/><p>MongoDB</p></div>
             </div>
             
           </div>

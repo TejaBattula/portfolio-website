@@ -138,6 +138,15 @@
 @media screen and (max-width:679px) {
     .mail-message{
         width: 80%;
+        height: auto;
+
+
+    }
+}
+@media screen and (min-width:679px) {
+    .mail-message{
+        width: 30%;
+        height: auto;
 
     }
 }
