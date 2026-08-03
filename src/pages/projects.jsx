@@ -15,8 +15,7 @@ const Projects = () => {
           <span>Jnapika - E-commerce Gifting Platform</span>
 
           <p>
-            A full-stack e-commerce gifting platform that allows users to explore
-            gifts. The application
+            A full-stack e-commerce gifting platform. The application
             provides product browsing, user authentication, wishlist, cart
             management, profile updates, and order processing with a responsive and
             user-friendly interface.
