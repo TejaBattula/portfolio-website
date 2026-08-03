@@ -17,8 +17,7 @@ const Projects = () => {
           <p>
             A full-stack e-commerce gifting platform. The application
             provides product browsing, user authentication, wishlist, cart
-            management, profile updates, and order processing with a responsive and
-            user-friendly interface.
+            management, profile updates, and order processing .
           </p>
 
           <span>Tools & Skills</span>
