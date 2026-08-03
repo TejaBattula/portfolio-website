@@ -7,7 +7,7 @@ const Projects = () => {
       <div className='project-body'>
       <div className="project-card">
         <div className="project-card-title">
-          <img src="technologies.png" alt="" />
+          <img src="jnapika.png" alt="" />
         </div>
 
         <div className="project-card-body">
