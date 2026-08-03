@@ -31,7 +31,7 @@ const Projects = () => {
 
           <div className="project-card-body-text">
             <a 
-              href="jnapika.vercel.app" 
+              href="https://jnapika.vercel.app" 
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -60,25 +60,7 @@ const Projects = () => {
           </div>
         </div>
       </div>
-      <div className="project-card">
-        <div className="project-card-title">
-          <img src="e-commerce.png" alt="" />
-        </div>
-        <div className="project-card-body">
-        
-            <span>E-Commerce website</span>
-            <p>A full-stack e-commerce web application featuring user authentication,
-      , shopping cart management, secure checkout, responsive and user-friendly interface.</p>
-            <span>Tools & Skills</span>
-            <p>React | Node | Express | MongoDB</p>
-          
-          <div className="project-card-body-text">
-            <a href="https://e-commerce-shopping-app22.vercel.app/" target="_blank" rel="noopener noreferrer">
-              View Project
-            </a>
-          </div>
-        </div>
-      </div>
+      
       <div className="project-card">
         <div className="project-card-title">
           <img src="weather.png" alt="" />
