@@ -7,6 +7,61 @@ const Projects = () => {
       <div className='project-body'>
       <div className="project-card">
         <div className="project-card-title">
+          <img src="technologies.png" alt="" />
+        </div>
+
+        <div className="project-card-body">
+
+          <span>Jnapika - E-commerce Gifting Platform</span>
+
+          <p>
+            A full-stack e-commerce gifting platform that allows users to explore
+            gifts. The application
+            provides product browsing, user authentication, wishlist, cart
+            management, profile updates, and order processing with a responsive and
+            user-friendly interface.
+          </p>
+
+          <span>Tools & Skills</span>
+
+          <p>
+            React.js | JavaScript | Node.js | Express.js | Mongoose |
+            REST API |  Git
+          </p>
+
+          <div className="project-card-body-text">
+            <a 
+              href="jnapika.vercel.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              View Project
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <div className="project-card">
+        <div className="project-card-title">
+          <img src="e-commerce.png" alt="" />
+        </div>
+        <div className="project-card-body">
+        
+            <span>E-Commerce website</span>
+            <p>A full-stack e-commerce web application featuring user authentication,
+      , shopping cart management, secure checkout, responsive and user-friendly interface.</p>
+            <span>Tools & Skills</span>
+            <p>React | Node | Express | MongoDB</p>
+          
+          <div className="project-card-body-text">
+            <a href="https://e-commerce-shopping-app22.vercel.app/" target="_blank" rel="noopener noreferrer">
+              View Project
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="project-card">
+        <div className="project-card-title">
           <img src="e-commerce.png" alt="" />
         </div>
         <div className="project-card-body">
