@@ -86,7 +86,7 @@
     padding: 10px;
 }
 .project-card-title img{
-    opacity: 0.8;
+    opacity: 0.9;
 }
 @media screen and (max-width : 679px){
     .project-body{
